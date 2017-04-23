@@ -16,8 +16,8 @@ cmake .. &&
 make &&
 ```
 
-Now, feel free to write your own MATRIX Creator HAL-based app in `cpp/matrix-app.cpp` and use the above workflow to rebuild.
-Then, run your new MATRIX Creator HAL-based app with
+Now, feel free to write your own MATRIX Creator HAL-based app in `cpp/matrix-app.cpp`.
+Use `make` to rebuild. Then, run app with
 
 ```
 ./matrix-app
