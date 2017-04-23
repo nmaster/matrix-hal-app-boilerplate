@@ -1,6 +1,6 @@
 # matrix-hal-app-boilerplate
 
-This repo provides boilerplate code for MATRIX Creator HAL-based applications to be built with cmake.
+This repo provides boilerplate code for MATRIX Creator HAL-based applications.
 Authors of such applications must have completed the installation of the MATRIX Creator HAL, as described in detail in https://github.com/matrix-io/matrix-creator-hal.
 
 In order to create a new MATRIX Creator HAL app, download and unzip the contents of this repo, and perform the following steps:
