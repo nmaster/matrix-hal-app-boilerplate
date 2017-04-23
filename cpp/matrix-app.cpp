@@ -39,7 +39,7 @@ void disableEverloop(){
     led.blue = 0;
     led.white = 0;
   }
-  
+
   everloop.Write(&image1d);
 }
 
@@ -49,12 +49,31 @@ void signalHandler( int signum ) {
   exit(signum);
 }
 
-int main() {
+void print_usage(){
+  cout << "This is the commandline help for MATRIX Creator HAL application matrix-app.\n";
+}
+
+int main (int argc, char **argv) {
+  // parse commandline parameters
+  int option = 0;
+
+  while ((option = getopt(argc, argv,"h")) != -1) {
+      switch (option) {
+           case 'h' : print_usage();
+                exit(EXIT_SUCCESS);
+           default: break;
+      }
+  }
+
+
+  // register signal handler
   signal(SIGINT, signalHandler);
-  
+
+  // initialize MATRIX Creator units
   bus.SpiInit();
   everloop.Setup(&bus);
 
+  // begin application
   unsigned counter = 0;
 
   while (1) {
