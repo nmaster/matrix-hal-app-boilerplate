@@ -76,18 +76,24 @@ int main (int argc, char **argv) {
 
   // begin application
   unsigned counter = 0;
-
+  unsigned i = 0;
   while (1) {
-    for (hal::LedValue& led : image1d.leds) {
-      led.red = 0;
-      led.green = 0;
-      led.blue = static_cast<int>(std::sin(counter / 128.0) * 7.0) + 8;
-      led.white = 0;
-    }
 
+    // red turning light on everloop
+    for(i=0; i < 35; i++){
+      
+      hal::LedValue& led = image1d.leds[i];
+      
+      if((counter % 35) == i){
+        led.red = 100;
+      } else {
+        led.red = 0;
+      }
+    }
+    
     everloop.Write(&image1d);
-    ++counter;
-    usleep(1000);
+    counter--;
+    usleep(10000);
   }
 
   return 0;
